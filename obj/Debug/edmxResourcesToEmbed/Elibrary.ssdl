@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="elibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin_login_tbl">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="book_issue_id" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="author_master_tbl">
+    <Key>
+      <PropertyRef Name="author_id" />
+    </Key>
+    <Property Name="author_id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="author_name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="book_issue_tbl">
+    <Key>
+      <PropertyRef Name="book_issue_id" />
+    </Key>
+    <Property Name="member_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="member_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="book_id" Type="nchar" MaxLength="10" />
+    <Property Name="book_name" Type="nvarchar(max)" />
+    <Property Name="issue_date" Type="nvarchar" MaxLength="50" />
+    <Property Name="due_date" Type="nvarchar" MaxLength="50" />
+    <Property Name="book_issue_id" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="book_master_tbl">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="book_name" Type="nvarchar(max)" />
+    <Property Name="genre" Type="nvarchar(max)" />
+    <Property Name="author_name" Type="nvarchar(max)" />
+    <Property Name="publisher_name" Type="nvarchar(max)" />
+    <Property Name="publish_date" Type="nvarchar" MaxLength="50" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+    <Property Name="edition" Type="nvarchar(max)" />
+    <Property Name="book_cost" Type="nchar" MaxLength="10" />
+    <Property Name="no_of_pages" Type="nchar" MaxLength="10" />
+    <Property Name="book_description" Type="nvarchar(max)" />
+    <Property Name="actual_stock" Type="nchar" MaxLength="10" />
+    <Property Name="current_stock" Type="nchar" MaxLength="10" />
+    <Property Name="book_img_link" Type="nvarchar(max)" />
+    <Property Name="author_id" Type="nchar" MaxLength="10" />
+    <Property Name="publisher_id" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="member_master_tbl">
+    <Key>
+      <PropertyRef Name="member_id" />
+    </Key>
+    <Property Name="full_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="dob" Type="nvarchar" MaxLength="50" />
+    <Property Name="contact_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="pincode" Type="nvarchar" MaxLength="50" />
+    <Property Name="full_address" Type="nvarchar(max)" />
+    <Property Name="member_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="account_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="publisher_master_tbl">
+    <Key>
+      <PropertyRef Name="publisher_id" />
+    </Key>
+    <Property Name="publisher_id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="publisher_name" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_admin_login_tbl_book_issue_tbl">
+    <End Role="book_issue_tbl" Type="Self.book_issue_tbl" Multiplicity="0..1" />
+    <End Role="admin_login_tbl" Type="Self.admin_login_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book_issue_tbl">
+        <PropertyRef Name="book_issue_id" />
+      </Principal>
+      <Dependent Role="admin_login_tbl">
+        <PropertyRef Name="book_issue_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_issue_tbl_book_master_tbl">
+    <End Role="book_master_tbl" Type="Self.book_master_tbl" Multiplicity="0..1" />
+    <End Role="book_issue_tbl" Type="Self.book_issue_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book_master_tbl">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="book_issue_tbl">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_issue_tbl_member_master_tbl">
+    <End Role="member_master_tbl" Type="Self.member_master_tbl" Multiplicity="0..1" />
+    <End Role="book_issue_tbl" Type="Self.book_issue_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member_master_tbl">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="book_issue_tbl">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_master_tbl_author_master_tbl">
+    <End Role="author_master_tbl" Type="Self.author_master_tbl" Multiplicity="0..1" />
+    <End Role="book_master_tbl" Type="Self.book_master_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="author_master_tbl">
+        <PropertyRef Name="author_id" />
+      </Principal>
+      <Dependent Role="book_master_tbl">
+        <PropertyRef Name="author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_master_tbl_publisher_master_tbl">
+    <End Role="publisher_master_tbl" Type="Self.publisher_master_tbl" Multiplicity="0..1" />
+    <End Role="book_master_tbl" Type="Self.book_master_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publisher_master_tbl">
+        <PropertyRef Name="publisher_id" />
+      </Principal>
+      <Dependent Role="book_master_tbl">
+        <PropertyRef Name="publisher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="elibraryDBModelStoreContainer">
+    <EntitySet Name="admin_login_tbl" EntityType="Self.admin_login_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="author_master_tbl" EntityType="Self.author_master_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book_issue_tbl" EntityType="Self.book_issue_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book_master_tbl" EntityType="Self.book_master_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="member_master_tbl" EntityType="Self.member_master_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="publisher_master_tbl" EntityType="Self.publisher_master_tbl" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_admin_login_tbl_book_issue_tbl" Association="Self.FK_admin_login_tbl_book_issue_tbl">
+      <End Role="book_issue_tbl" EntitySet="book_issue_tbl" />
+      <End Role="admin_login_tbl" EntitySet="admin_login_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_issue_tbl_book_master_tbl" Association="Self.FK_book_issue_tbl_book_master_tbl">
+      <End Role="book_master_tbl" EntitySet="book_master_tbl" />
+      <End Role="book_issue_tbl" EntitySet="book_issue_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_issue_tbl_member_master_tbl" Association="Self.FK_book_issue_tbl_member_master_tbl">
+      <End Role="member_master_tbl" EntitySet="member_master_tbl" />
+      <End Role="book_issue_tbl" EntitySet="book_issue_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_master_tbl_author_master_tbl" Association="Self.FK_book_master_tbl_author_master_tbl">
+      <End Role="author_master_tbl" EntitySet="author_master_tbl" />
+      <End Role="book_master_tbl" EntitySet="book_master_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_master_tbl_publisher_master_tbl" Association="Self.FK_book_master_tbl_publisher_master_tbl">
+      <End Role="publisher_master_tbl" EntitySet="publisher_master_tbl" />
+      <End Role="book_master_tbl" EntitySet="book_master_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
