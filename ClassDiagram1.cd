@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ELibraryManagement.AdminAuthorManagement">
+    <Position X="26.25" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIAAAgAAIACAAAAAAAQDgAAAAQcCiAAAAAAAIAABA=</HashCode>
+      <FileName>AdminAuthorManagement.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.adminbookinventory">
+    <Position X="15.75" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AYiDAEAgAIAcCAAAQEAiQjgAAAAQcAgAAAAYAQIACAA=</HashCode>
+      <FileName>adminbookinventory.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.adminbookissuing">
+    <Position X="19" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIABQAAgAIAACAEAAEAgQBgAAAAQYAgAAAAAAB4AAIE=</HashCode>
+      <FileName>adminbookissuing.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.adminlogin">
+    <Position X="24.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAACAAAAAAAAAgAAAAQQAAAAAAAAAIAAAA=</HashCode>
+      <FileName>adminlogin.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.adminmembermanagement">
+    <Position X="30.5" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAgUAgAMAACAAgAEAgABBQABASICAIBAAAAAMAAgA=</HashCode>
+      <FileName>adminmembermanagement.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.AdminPublisherManagement">
+    <Position X="22.25" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgAAAACAAAAAACQDgAAQBQcAgAAAAAAQIIAAA=</HashCode>
+      <FileName>AdminPublisherManagement.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.userlogin">
+    <Position X="8.25" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAACAAAAAAAAAgAAAAQQAAAAAAAAAIAAAA=</HashCode>
+      <FileName>userlogin.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.userprofile">
+    <Position X="4.75" Y="10.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIABgECgEIARCAAAAEAgABgAAAAQQAAAAAAAAAIBAAE=</HashCode>
+      <FileName>userprofile.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.usersignup">
+    <Position X="8" Y="1.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgGAgAIAQCAAAAEAgABgAAAAQQAAAAAEAAAIAAAA=</HashCode>
+      <FileName>usersignup.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ELibraryManagement.ViewBooks">
+    <Position X="10" Y="10.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAEAAAAAAAAAAAAAAAAAAQAAABAAAAAAIAAAA=</HashCode>
+      <FileName>viewbooks.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Web.UI.Page" Collapsed="true">
+    <Position X="18" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
